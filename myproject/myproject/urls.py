@@ -32,3 +32,11 @@ router.register(r'reminders', views.ReminderViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
+from django.urls import path
+from .views import UserCreate, LoginView
+
+urlpatterns = [
+    path('api/register', UserCreate.as_view(), name='register'),
+    path('api/login', LoginView.as_view(), name='login'),
+]
